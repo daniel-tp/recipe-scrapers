@@ -8,7 +8,7 @@ from ._utils import get_minutes, get_yields, normalize_string, url_path_to_dict
 
 class GoustoJson(AbstractScraper):
     """
-    Ad-hoc solution to https://github.com/hhursev/recipe-scrapers/issues/376
+    Ad-hoc solution to https://github.com/hhursev/recipe-scrapers/issues/376https://www.gousto.co.uk/cookbook/pork-recipes/crispy-pork-belly-noodle-ramen
     Let's see if it stands the test of time and reevaluate.
     """
 
@@ -37,11 +37,14 @@ class GoustoJson(AbstractScraper):
     def title(self):
         return self.data.get("title")
 
+    def description(self):
+        return normalize_string(self.data.get("description"))
+
     def total_time(self):
-        return get_minutes(sorted(self.data.get("prep_times").values())[-1])
+        return get_minutes(sorted(self.data.get("prep_times").values())[0])
 
     def yields(self):
-        return get_yields(sorted(self.data.get("prep_times").keys())[-1])
+        return get_yields(sorted(self.data.get("prep_times").keys())[0])
 
     def image(self):
         return self.data.get("seo").get("open_graph_image")
