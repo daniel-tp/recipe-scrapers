@@ -8,7 +8,7 @@ from ._utils import get_minutes, get_yields, normalize_string, url_path_to_dict
 
 class GoustoJson(AbstractScraper):
     """
-    Ad-hoc solution to https://github.com/hhursev/recipe-scrapers/issues/376https://www.gousto.co.uk/cookbook/pork-recipes/crispy-pork-belly-noodle-ramen
+    Ad-hoc solution to https://github.com/hhursev/recipe-scrapers/issues/376
     Let's see if it stands the test of time and reevaluate.
     """
 
